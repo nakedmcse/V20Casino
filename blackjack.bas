@@ -16,7 +16,7 @@
 114 hc=0:dt=1:gosub 360
 115 x=5:y=16:gosub 210:print chr$(146)+chr$(144)+"                ";
 116 dt=0:gosub 380:dt=1:gosub 380: rem calc
-117 x=5:y=16:gosub 210:print pv;dv;:input z
+117 x=5:y=16:gosub 210:print "p";pv;"d";dv;:input z
 118 di=1:ai=1:goto 108
 
 210 rem set posn
@@ -38,14 +38,14 @@
 
 320 rem deal
 321 if dt=1 goto 325
-322 if ai>6 goto 330
+322 if ai>6 goto 329
 323 p(ai,1)=ca(cp,1):p(ai,2)=ca(cp,2)
 324 ai=ai+1:cp=cp+1:goto 329
-325 if di>6 goto 330
-327 d(di,1)=ca(cp,1):d(di,2)=ca(cp,2)
-328 di=di+1:cp=cp+1
-329 if cp>52 then gosub 310:cp=1
-330 return
+325 if di>6 goto 329
+326 d(di,1)=ca(cp,1):d(di,2)=ca(cp,2)
+327 di=di+1:cp=cp+1
+328 if cp>52 then gosub 310:cp=1
+329 return
 
 330 rem draw card
 331 gosub 210:print chr$(18)+chr$(5);
