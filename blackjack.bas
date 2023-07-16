@@ -1,5 +1,5 @@
 2 rem objects
-3 x=0:y=0:pt=0:pc=100:dc=100:cp=1
+3 x=0:y=0:pt=0:pw=0:dw=0:cp=1
 4 dim ca(52,2):dim p(6,2):dim d(6,2):dim o(2)
 5 de=2:dt=1:ai=1:di=1:hc=0:pv=0:dv=0
 
