@@ -87,12 +87,12 @@
 360 rem draw hand
 361 if dt=1 goto 367
 362 x=6:y=5
-363 for i=1 to ai
+363 for i=1 to ai-1
 364 o(1)=p(i,1):o(2)=p(i,2):gosub 330:y=y-1:x=x+3
 365 next i
 366 return
 367 x=6:y=9
-368 for i=1 to di
+368 for i=1 to di-1
 369 o(1)=d(i,1):o(2)=d(i,2):gosub 330:y=y-1:x=x+3
 370 next i
 371 return
