@@ -1,7 +1,7 @@
 1 x=0:y=0:pw=0:dw=0:cp=1:de=2:dt=1:ai=1:di=1:hc=0:pv=0:dv=0
 2 dim ca(52,2):dim p(6,2):dim d(6,2):dim o(2)
 
-4 poke 36879,93:poke 646,0:print chr$(147):rem grn-blk
+4 poke 36879,93:poke 646,0:print chr$(147)
 5 gosub 26:gosub 110:rem shuf
 6 for i=1 to de:dt=0:gosub 120:dt=1:gosub 120:next i:rem deal
 7 print chr$(147):x=3:y=1:gosub 25:print "darcys blackjack"
@@ -11,12 +11,12 @@
 12 if pv>21 then print "*bust*":pv=0:dv=0:dw=dw+1:di=1:ai=1:goto 6
 13 x=1:y=16:gosub 25:input "(1)draw or (2)hold";z
 14 if z=1 then dt=0:gosub 120:goto 10
-15 hc=0:dt=1:gosub 60:x=1:y=16:gosub 25:print "                  "
+15 hc=0:dt=1:gosub 60:x=1:y=16:gosub 25:print "                     "
 17 dt=1:gosub 80:if dv>21 then print "*bust*":pv=0:dv=0:pw=pw+1:di=1:ai=1:goto 6
 18 if dv<15 then gosub 120:gosub 60:goto 17
 19 x=5:y=16:gosub 25:if pv>dv then print "plr wins":pw=pw+1:goto 21
 20 if dv>pv then print "dlr wins":dw=dw+1
-21 pv=0:dv=0:di=1:ai=1:goto 6
+21 pv=0:dv=0:di=1:ai=1:poke 162,0:wait 162,64:goto 6
 
 25 poke 781,y:poke 782,x:poke 783,0:sys 65520:return:rem set posn
 
@@ -40,7 +40,7 @@
 45 print chr$(31)+chr$(166)+chr$(166):y=y+1:gosub 25:print chr$(166)+chr$(166)
 48 return
 
-60 rem draw hand
+60 rem hand
 61 if dt=1 goto 64
 62 x=6:y=9:for i=1 to ai-1:o(1)=p(i,1):o(2)=p(i,2):gosub 30:y=y-1:x=x+3:next i
 63 return
