@@ -1,7 +1,7 @@
 1 x=0:y=0:pw=0:dw=0:cp=1:de=2:dt=1:ai=1:di=1:hc=0:pv=0:dv=0
 2 dim ca(52,2):dim p(6,2):dim d(6,2):dim o(2)
 
-4 poke 36879,93:poke 646,0:print chr$(147)
+4 poke36879,93:poke646,0:print chr$(147)
 5 gosub 26:gosub 110:rem shuf
 6 for i=1 to de:dt=0:gosub 120:dt=1:gosub 120:next i:rem deal
 7 print chr$(147):x=3:y=1:gosub 25:print "darcys blackjack"
@@ -21,7 +21,7 @@
 25 poke 781,y:poke 782,x:poke 783,0:sys 65520:return:rem set posn
 
 26 rem fill
-27 for i=1 to 4:in=(i-1)*13:for j=1 to 13:ca(in+j,1)=j:ca(in+j,2)=i:next j
+27 for i=1to4:in=(i-1)*13:for j=1to13:ca(in+j,1)=j:ca(in+j,2)=i:next j
 28 next i:return
 
 30 rem draw
@@ -38,7 +38,7 @@
 43 if o(2)=4 then print chr$(218)+chr$(32)
 44 goto 48
 45 print chr$(31)+chr$(166)+chr$(166):y=y+1:gosub 25:print chr$(166)+chr$(166)
-48 return
+48 poke646,0:return
 
 60 rem hand
 61 if dt=1 goto 64
@@ -68,8 +68,7 @@
 
 110 rem shuf
 111 x=5:y=14:gosub 25:print "          ":x=5:y=14:gosub 25:print " shuffling"
-112 z=rnd(-ti)
-113 for i=1 to 52:sw=int(rnd(1)*52)+1:cx=ca(i,1):cy=ca(i,2)
+112 z=rnd(-ti):for i=1 to 52:sw=int(rnd(1)*52)+1:cx=ca(i,1):cy=ca(i,2)
 114 ca(i,1)=ca(sw,1):ca(i,2)=ca(sw,2)
 115 ca(sw,1)=cx:ca(sw,2)=cy:next i
 116 x=5:y=14:gosub 25:print "          ":return
